@@ -19,29 +19,37 @@
 #Ty porovnejte s řetězcem "+420".
 
 
-telefonni_cislo = input("Zadej telefonní číslo: ")
-predvolba = "+420"
-delka_cisla = len(telefonni_cislo)
+def povoleny_format():
+    telefonni_cislo = input("Zadej telefonní číslo: ")
+    predvolba = "+420"
+    delka_cisla = len(telefonni_cislo)
 
-if delka_cisla == 9:
-    print(True)
-elif delka_cisla == 13:
-    if telefonni_cislo[0:4] == predvolba:
-        print(True)
+    if delka_cisla == 9:
+        return True
+    elif delka_cisla == 13:
+        if telefonni_cislo[0:4] == predvolba:
+            return True
+        else:
+            return False
     else:
-        print(False)
-else:
-    print(False)
+        return False
 
-import math
-text_zpravy = input("Zadej text zprávy: ")
-delka_zpravy = len(text_zpravy)
+print(f"Telefonní číslo je {povoleny_format()}.")
 
-pocet_zprav_nezao = delka_zpravy // 180
+    
+    
+    
+def cena_zpravy():
+    text_zpravy = input("Zadej text zprávy: ")
+    delka_zpravy = len(text_zpravy)
+    pocet_zprav_nezao = delka_zpravy / 180
 
-pocet_zprav = math.ceil(pocet_zprav_nezao)
+    import math
+    pocet_zprav = math.ceil(pocet_zprav_nezao)
 
-print(f"Cena zprávy je {pocet_zprav * 3} Kč.")
+    return pocet_zprav
+
+print(f"Cena zprávy je {cena_zpravy() * 3} Kč.")
 
 
 

@@ -18,38 +18,36 @@
 #Pro kontrolu předvolby použijte slicing (viz první lekce) pro získání prvních 4 znaků řetězce. 
 #Ty porovnejte s řetězcem "+420".
 
+import math
+
+telefonni_cislo = input("Zadej telefonní číslo: ")
 
 def povoleny_format():
-    telefonni_cislo = input("Zadej telefonní číslo: ")
+    
     predvolba = "+420"
     delka_cisla = len(telefonni_cislo)
 
-    if delka_cisla == 9:
-        return True
-    elif delka_cisla == 13:
-        if telefonni_cislo[0:4] == predvolba:
-            return True
-        else:
-            return False
-    else:
-        return False
+    platne_9 = delka_cisla == 9
+    platne_13 = delka_cisla == 13 and telefonni_cislo[0:4] == predvolba
+    return platne_9 or platne_13
 
-print(f"Telefonní číslo je {povoleny_format()}.")
 
-    
-    
     
 def cena_zpravy():
     text_zpravy = input("Zadej text zprávy: ")
     delka_zpravy = len(text_zpravy)
     pocet_zprav_nezao = delka_zpravy / 180
 
-    import math
+    
     pocet_zprav = math.ceil(pocet_zprav_nezao)
 
     return pocet_zprav
 
-print(f"Cena zprávy je {cena_zpravy() * 3} Kč.")
+if povoleny_format(): 
+    print(f"Cena zprávy je {cena_zpravy() * 3} Kč.")
+else:
+    print("Telefonní číslo je neplatné.")
+
 
 
 

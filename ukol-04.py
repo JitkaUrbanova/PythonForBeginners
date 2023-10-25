@@ -23,7 +23,6 @@ import math
 telefonni_cislo = input("Zadej telefonní číslo: ")
 
 def povoleny_format():
-    
     predvolba = "+420"
     delka_cisla = len(telefonni_cislo)
 
@@ -37,11 +36,11 @@ def cena_zpravy():
     text_zpravy = input("Zadej text zprávy: ")
     delka_zpravy = len(text_zpravy)
     pocet_zprav_nezao = delka_zpravy / 180
-
-    
     pocet_zprav = math.ceil(pocet_zprav_nezao)
 
     return pocet_zprav
+
+
 
 if povoleny_format(): 
     print(f"Cena zprávy je {cena_zpravy() * 3} Kč.")
